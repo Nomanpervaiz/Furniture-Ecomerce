@@ -14,7 +14,7 @@ const continueWithGoogle = ()=>{
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const user = result.user;
     message.success(user)
-    navigate(0)
+    navigate("/")
 
   }).catch((error) => {
     const errorMessage = error.message;

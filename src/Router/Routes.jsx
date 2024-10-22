@@ -18,8 +18,7 @@ import AllCart from '../public/AllCart'
 function AppRouter() {
   const userDetail = useContext(ContextOfUser)
   const { islogin } = userDetail
-
-
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -37,7 +36,6 @@ function AppRouter() {
           <Route path='cart' element={ <AllCart />} />
           <Route path='checkout' element={islogin ?  <Checkout /> : <Navigate to={"/login"}/>} />
         </Route>
-
         {/* Not found */}
         <Route path="*" element={<AppNotFound />} />
 
