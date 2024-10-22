@@ -19,7 +19,6 @@ function Register() {
         message.success("Registered Successfully!")
         setLoader(true);
         navigate("/")
-
       })
       .catch((error) => {
         setLoader(false);

@@ -74,6 +74,7 @@ function Checkout() {
       
       updateItemsAfterOrder()
        setIsOrderPlaced(true);
+       
     } catch (error) {
       console.error("Error placing order:", error);
       message.error("Failed to place order. Please try again.");
