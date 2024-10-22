@@ -18,7 +18,7 @@ function Login() {
         const user = userCredential.user;
         console.log(user);
         setLoader(true);
-        navigate(0);
+        navigate("/");
         message.success("Login Successfully!");
       })
       .catch((error) => {

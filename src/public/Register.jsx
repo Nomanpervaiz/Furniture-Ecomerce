@@ -18,7 +18,7 @@ function Register() {
         console.log(userCredential.user);
         message.success("Registered Successfully!")
         setLoader(true);
-        navigate(0);
+        navigate("/")
 
       })
       .catch((error) => {
