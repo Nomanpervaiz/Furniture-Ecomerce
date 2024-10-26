@@ -24,7 +24,7 @@ export default function Header() {
     signOut(auth)
       .then(() => {
         message.success("Sign-out successful!");
-        navigate(0);
+        navigate('/')
       })
       .catch((error) => {
         message.error(error.message);
@@ -91,10 +91,10 @@ export default function Header() {
         <div className="hidden lg:flex-1 lg:justify-end xl:flex xl:items-center lg:flex lg:items-center">
           <Link
             to={"order-history"}
-            className="relative text-sm font-semibold leading-6 px-3 text-gray-900"
+            className="relative text-sm font-semibold leading-6 px-2 text-gray-900"
           >
             {userDetail?.islogin ? (
-              <HistoryOutlined style={{ fontSize: "25px" }} />
+              <HistoryOutlined style={{ fontSize: "22px" }} />
             ) : null}
           </Link>
           <Link
@@ -110,42 +110,42 @@ export default function Header() {
             <ShoppingCartOutlined style={{ fontSize: "25px" }} />
           </Link>
           {islogin ? (
-                      <Popover
-                        content={content}
-                        title=" "
-                        placement="bottomRight"
-                      >
-                        <Link
-                          to={"login"}
-                          className="text-sm font-semibold leading-6 px-3 text-gray-900"
-                        >
-                          {islogin ? (
-                            <img
-                              className="w-8 rounded-full"
-                              src={userDetail?.photoURL}
-                              alt="user profile"
-                            />
-                          ) : (
-                            <UserAddOutlined style={{ fontSize: "20px" }} />
-                          )}
-                        </Link>
-                      </Popover>
-                    ) : (
-                      <Link
-                        to={"login"}
-                        className="text-sm font-semibold leading-6 px-3 text-gray-900"
-                      >
-                        {islogin ? (
-                          <img
-                            className="w-8 rounded-full"
-                            src={userDetail?.photoURL || profile}
-                            alt="user profile"
-                          />
-                        ) : (
-                          <UserAddOutlined style={{ fontSize: "20px" }} />
-                        )}
-                      </Link>
-                    )}
+            <Popover
+              content={content}
+              title=" "
+              placement="bottomRight"
+            >
+              <Link
+                to={"login"}
+                className="text-sm font-semibold leading-6 px-3 text-gray-900"
+              >
+                {islogin ? (
+                  <img
+                    className="w-8 rounded-full"
+                    src={userDetail?.photoURL}
+                    alt="user profile"
+                  />
+                ) : (
+                  <UserAddOutlined style={{ fontSize: "20px" }} />
+                )}
+              </Link>
+            </Popover>
+          ) : (
+            <Link
+              to={"login"}
+              className="text-sm font-semibold leading-6 px-3 text-gray-900"
+            >
+              {islogin ? (
+                <img
+                  className="w-8 rounded-full"
+                  src={userDetail?.photoURL || profile}
+                  alt="user profile"
+                />
+              ) : (
+                <UserAddOutlined style={{ fontSize: "20px" }} />
+              )}
+            </Link>
+          )}
         </div>
       </nav>
       <Dialog
@@ -174,20 +174,33 @@ export default function Header() {
               <div className="space-y-2 py-6">
                 <div className="py-6 border-b">
                   <div className=" lg:flex-1 flex justify-between lg:justify-end xl:flex xl:items-center lg:flex lg:items-center">
-                    <Link
-                      onClick={() => setMobileMenuOpen(false)}
-                      to={"cart"}
-                      className="text-sm relative font-semibold leading-6 px-3 text-gray-900"
-                    >
-                      {userDetail.islogin ? (
-                        <AppBadge
-                          count={cartItem?.length > 0 ? cartItem?.length : null}
-                          className={"absolute bottom-5 left-6"}
-                        />
-                      ) : null}
+                    <div>
 
-                      <ShoppingCartOutlined style={{ fontSize: "25px" }} />
-                    </Link>
+                      <Link
+                        onClick={() => setMobileMenuOpen(false)}
+                        to={"cart"}
+                        className="text-sm relative font-semibold leading-6 px-3 text-gray-900"
+                      >
+                        {userDetail.islogin ? (
+                          <AppBadge
+                            count={cartItem?.length > 0 ? cartItem?.length : null}
+                            className={"absolute bottom-5 left-6"}
+                          />
+                        ) : null}
+
+                        <ShoppingCartOutlined style={{ fontSize: "25px" }} />
+                      </Link>
+                      <Link
+                      onClick={() => setMobileMenuOpen(false)}
+                        to={"order-history"}
+                        className="relative text-sm font-semibold leading-6 px-2 text-gray-900"
+                      >
+                        {userDetail?.islogin ? (
+                          <HistoryOutlined style={{ fontSize: "22px" }} />
+                        ) : null}
+                      </Link>
+                    </div>
+
                     {islogin ? (
                       <Popover
                         content={content}

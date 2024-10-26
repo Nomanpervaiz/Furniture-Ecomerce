@@ -1,8 +1,14 @@
 {
-    "rewrites": [
-      {
-        "source": "/api/:path*",
-        "destination": "/api/:path*"
-      }
-    ]
-  }
+  "rewrites": [
+    { "source": "/login", "destination": "/" },
+    { "source": "/register", "destination": "/" },
+    { "source": "/shop", "destination": "/" },
+    { "source": "/about", "destination": "/" },
+    { "source": "/contact", "destination": "/" },
+    { "source": "/shop/:id", "destination": "/" },
+    { "source": "/cart", "destination": "/" },
+    { "source": "/checkout", "destination": "/" },
+    { "source": "/order-history", "destination": "/" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}

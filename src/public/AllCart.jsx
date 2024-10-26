@@ -34,7 +34,7 @@ function AllCart() {
       </div>
       {cartItem.length === 0 ? (
         <div className="container px-4 lg:px-10 mx-auto my-10 lg:my-20 flex flex-col lg:flex-row gap-10">
-          <div className="w-full content-center  flex justify-center">
+          <div className="w-full content-center flex justify-center">
             <div className="bg-[#FFF3E3] w-full max-w-[600px] h-[200px] flex flex-col justify-center items-center gap-5 p-6 rounded-lg shadow-lg">
                 <p className="font-bold text-xl">Empty cart</p>
                 <p>No Item Added to Cart</p>
