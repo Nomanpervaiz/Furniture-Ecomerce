@@ -58,6 +58,7 @@ function AllCart() {
                 <tbody>
                   {cartItem.map((items) => {
                     return (
+                      
                       <tr key={items.id} className="text-center border-b  ">
                         <td className="p-4 flex items-center gap-4">
                           <img

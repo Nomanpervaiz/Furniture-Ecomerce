@@ -24,7 +24,7 @@ export default function Header() {
     signOut(auth)
       .then(() => {
         message.success("Sign-out successful!");
-        navigate('/')
+        navigate(0)
       })
       .catch((error) => {
         message.error(error.message);
