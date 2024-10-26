@@ -30,7 +30,7 @@ export const ContextOfCartProvider = ({ children }) => {
       }
     };
     fetchCart();
-  }, [cartRef,userDetail,islogin]);
+  }, [cartRef,userDetail]);
 
   const syncCartWithFirestore = async (newCart) => {
     if (cartRef) {

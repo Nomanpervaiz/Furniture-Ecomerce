@@ -5,9 +5,11 @@ import { DeleteOutlined, RightOutlined } from "@ant-design/icons";
 import { ContextOfCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import ServiceLines from "../components/ServiceLines";
+import { ContextOfUser } from "../context/UserContext";
 
 function AllCart() {
   const { cartItem, removeItemFromCart } = useContext(ContextOfCart);
+  const { userDetail } = useContext(ContextOfUser)
   const totalAmount = cartItem.reduce(
     (total, product) => total + product.price * product.quantity,
     0
