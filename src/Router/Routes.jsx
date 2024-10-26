@@ -13,6 +13,7 @@ import Login from '../public/Login'
 import Register from '../public/Register'
 import { ContextOfUser } from '../context/UserContext'
 import AllCart from '../public/AllCart'
+import OrderHistory from '../public/OrderedHistory'
 
 
 function AppRouter() {
@@ -35,6 +36,7 @@ function AppRouter() {
 
           <Route path='cart' element={ <AllCart />} />
           <Route path='checkout' element={islogin ?  <Checkout /> : <Navigate to={"/login"}/>} />
+          <Route path='order-history' element={islogin ?  <OrderHistory /> : <Navigate to={"/login"}/>} />
         </Route>
         {/* Not found */}
         <Route path="*" element={<AppNotFound />} />

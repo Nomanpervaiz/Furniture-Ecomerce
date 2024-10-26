@@ -48,7 +48,6 @@ function Checkout() {
       message.error("Please fill in all required fields.");
       return;
     }
-
     try {
       setIsPlacingOrder(true); 
 
@@ -59,6 +58,7 @@ function Checkout() {
         orders: orderItems,
         customerInfo: formData,
         orderPlacedAt: new Date(),
+        Orderby : userDetail?.uid , 
         totalAmount,
       });
       message.success("Order placed successfully!"); 
@@ -74,7 +74,7 @@ function Checkout() {
       
       updateItemsAfterOrder()
        setIsOrderPlaced(true);
-       
+
     } catch (error) {
       console.error("Error placing order:", error);
       message.error("Failed to place order. Please try again.");

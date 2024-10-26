@@ -4,7 +4,7 @@ import profile from "../assets/profilelogo.png";
 import { useContext, useState } from "react";
 import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { LogoutOutlined, ShoppingCartOutlined, UserAddOutlined } from "@ant-design/icons";
+import { HistoryOutlined, LogoutOutlined, ShoppingCartOutlined, UserAddOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { ContextOfUser } from "../context/UserContext";
 import { Button, message, Popover } from "antd";
@@ -17,7 +17,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const userDetail = useContext(ContextOfUser);
-  const { islogin, photoURL } = userDetail;
+  const { islogin } = userDetail;
   const { cartItem } = useContext(ContextOfCart);
 
   const HandleSignOut = () => {
@@ -90,10 +90,18 @@ export default function Header() {
         </PopoverGroup>
         <div className="hidden lg:flex-1 lg:justify-end xl:flex xl:items-center lg:flex lg:items-center">
           <Link
+            to={"order-history"}
+            className="relative text-sm font-semibold leading-6 px-3 text-gray-900"
+          >
+            {userDetail?.islogin ? (
+              <HistoryOutlined style={{ fontSize: "25px" }} />
+            ) : null}
+          </Link>
+          <Link
             to={"cart"}
             className="relative text-sm font-semibold leading-6 px-3 text-gray-900"
           >
-            {userDetail.islogin ? (
+            {userDetail?.islogin ? (
               <AppBadge
                 count={cartItem?.length > 0 ? cartItem?.length : null}
                 className={"absolute bottom-5 left-6"}
@@ -114,7 +122,7 @@ export default function Header() {
                           {islogin ? (
                             <img
                               className="w-8 rounded-full"
-                              src={photoURL == null ? profile : photoURL}
+                              src={userDetail?.photoURL}
                               alt="user profile"
                             />
                           ) : (
@@ -130,7 +138,7 @@ export default function Header() {
                         {islogin ? (
                           <img
                             className="w-8 rounded-full"
-                            src={photoURL == null ? profile : photoURL}
+                            src={userDetail?.photoURL || profile}
                             alt="user profile"
                           />
                         ) : (
@@ -193,7 +201,7 @@ export default function Header() {
                           {islogin ? (
                             <img
                               className="w-8 rounded-full"
-                              src={photoURL == null ? profile : photoURL}
+                              src={userDetail?.photoURL || profile}
                               alt="user profile"
                             />
                           ) : (
@@ -209,7 +217,7 @@ export default function Header() {
                         {islogin ? (
                           <img
                             className="w-8 rounded-full"
-                            src={photoURL == null ? profile : photoURL}
+                            src={userDetail?.photoURL || profile}
                             alt="user profile"
                           />
                         ) : (
