@@ -28,7 +28,7 @@ export const ContextOfCartProvider = ({ children }) => {
           message.error("Failed to load cart data from Firestore");
         }
       }
-    };
+    }
     fetchCart();
   }, [cartRef,userDetail]);
 
@@ -74,7 +74,7 @@ export const ContextOfCartProvider = ({ children }) => {
     }
   };
 
-  const updateItemsAfterOrder = async () => {
+  const updateCartAfterOrder = async () => {
     if (cartRef) {
       try {
         await updateDoc(cartRef, { items: [] });
@@ -117,7 +117,7 @@ export const ContextOfCartProvider = ({ children }) => {
         removeItemFromCart,
         isItemAdded,
         updateQuantity,
-        updateItemsAfterOrder
+        updateCartAfterOrder
         
       }}
     >
