@@ -50,6 +50,7 @@ function Checkout() {
           formData: formData,
           placedAt: Timestamp.now(),
           userId: userDetail.uid,
+          amount : totalAmount 
         }
         setIsPlacingOrder(true);
         

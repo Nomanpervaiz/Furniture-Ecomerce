@@ -31,7 +31,7 @@ function ProductCards({ cardLimit }) {
               >
                 {productObj.discountPercentage > 5 && (
                   <label className="m-2 p-2 text-center bg-red-300 text-white rounded-full h-10 w-10 absolute ">
-                    -{Math.floor(productObj.discountPercentage)}
+                    -{Math.floor(productObj?.discountPercentage)}
                   </label>
                 )}
                 <Link
@@ -41,21 +41,21 @@ function ProductCards({ cardLimit }) {
                   <div className="bg-gray-200 border h-full   border-opacity-60 rounded-sm overflow-hidden">
                     <img
                       className="lg:h-80 md:h-80 bg-gray-100 h-72 w-full object-cover object-center"
-                      src={productObj.thumbnail}
+                      src={productObj?.thumbnail}
                       alt="blog"
                     />
                     <div className="p-4">
                       <h2 className="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
-                        {productObj.category}
+                        {productObj?.category}
                       </h2>
                       <h1 className="title-font text-lg font-medium text-gray-600 mb-1">
-                        {productObj.name}
+                        {productObj?.name}
                       </h1>
                       <p className="leading-relaxed text-gray-400 mb-1">
-                        {productObj.description}
+                        {productObj?.description}
                       </p>
                       <h2 className="tracking-widest  font-bold text-gray-500 mb-1">
-                        Rs .{productObj.price}/=
+                        Rs .{productObj?.price}/=
                       </h2>
                     </div>
                   </div>
