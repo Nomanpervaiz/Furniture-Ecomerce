@@ -140,7 +140,7 @@ function Checkout() {
           <div className="max-w-6xl mx-auto rounded-lg">
             <div className="grid md:grid-cols-2 gap-x-20 p-8">
               <form className="space-y-6">
-                <h3 className="text-xl font-bold">Billing Detail</h3>
+                <h3 className="text-xl font-bold">Your Detail</h3>
                 <div className="flex gap-4">
                   <input
                     type="text"
